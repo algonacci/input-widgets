@@ -1,7 +1,39 @@
 import 'package:flutter/material.dart';
 
-class TextFieldPage extends StatelessWidget {
+class TextFieldPage extends StatefulWidget {
   const TextFieldPage({super.key});
+
+  @override
+  State<TextFieldPage> createState() => _TextFieldPageState();
+}
+
+class _TextFieldPageState extends State<TextFieldPage> {
+  late TextEditingController nameController;
+  FocusNode? _focusNode;
+  int maxLineCount = 1;
+
+  @override
+  void initState() {
+    nameController = TextEditingController(text: "TEST");
+    _focusNode = FocusNode();
+    _focusNode!.addListener(() {
+      setState(() {
+        if (_focusNode!.hasFocus) {
+          maxLineCount = 5;
+        } else {
+          maxLineCount = 1;
+        }
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    _focusNode!.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +46,20 @@ class TextFieldPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20),
             child: TextField(
+              focusNode: _focusNode,
+              controller: nameController,
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               autofocus: true,
-              maxLines: 3,
+              maxLines: maxLineCount,
               maxLength: 15,
               onChanged: (String value) {
+                nameController.value = TextEditingValue(
+                  text: value,
+                  selection: TextSelection.collapsed(
+                    offset: value.length,
+                  ),
+                );
                 debugPrint(value);
               },
               onSubmitted: (String value) {
@@ -35,6 +75,7 @@ class TextFieldPage extends StatelessWidget {
               ),
             ),
           ),
+          Text(nameController.text),
           const Padding(
             padding: EdgeInsets.all(20),
             child: TextField(
@@ -45,7 +86,11 @@ class TextFieldPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            nameController.text = "Flutter";
+          });
+        },
         child: const Icon(Icons.add),
       ),
     );

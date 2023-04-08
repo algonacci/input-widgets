@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:input_widgets/home_page.dart';
 import 'package:input_widgets/text_field.dart';
 
 void main() {
@@ -10,8 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: TextFieldPage(),
+    return MaterialApp(
+      home: HomePage(),
+      routes: {
+        '/textfield': (context) => TextFieldPage(),
+      },
     );
   }
 }

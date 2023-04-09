@@ -25,6 +25,19 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/textformfield');
+                },
+                child: const Text(
+                  'Text Form Field Page',
+                ),
+              ),
+            ],
           )
         ],
       ),

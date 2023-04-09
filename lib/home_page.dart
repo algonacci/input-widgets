@@ -38,7 +38,20 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/other');
+                },
+                child: const Text(
+                  'Checkbox Slider Radio Switch Page',
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

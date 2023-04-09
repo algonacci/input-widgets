@@ -50,6 +50,7 @@ class TextFormFieldPage extends StatelessWidget {
                     if (!EmailValidator.validate(email!)) {
                       return 'Email is not valid!';
                     }
+                    return null;
                   },
                 ),
                 const SizedBox(
@@ -68,6 +69,7 @@ class TextFormFieldPage extends StatelessWidget {
                     if (value!.length < 8) {
                       return 'Password must be at least 8 characters!';
                     }
+                    return null;
                   },
                 ),
                 const SizedBox()

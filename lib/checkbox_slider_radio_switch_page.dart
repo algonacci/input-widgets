@@ -14,6 +14,9 @@ class _CheckboxSliderRadioSwitchPageState
   String? day;
   bool switchState = false;
   double sliderValue = 0;
+  String dropdownValue = 'Monday';
+  List<String> techStack = ['Laravel', 'React', 'Vue', 'Flutter'];
+  String selectedDropDown = 'Laravel';
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +101,50 @@ class _CheckboxSliderRadioSwitchPageState
             max: 50,
             divisions: 10,
             label: sliderValue.toString(),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: DropdownButton<String>(
+              hint: Text(dropdownValue),
+              items: const [
+                DropdownMenuItem(
+                  value: 'Monday',
+                  child: Text('Monday'),
+                ),
+                DropdownMenuItem(
+                  value: 'Tuesday',
+                  child: Text('Tuesday'),
+                ),
+                DropdownMenuItem(
+                  value: 'Wednesday',
+                  child: Text('Wednesday'),
+                ),
+              ],
+              onChanged: (selected) {
+                setState(() {
+                  dropdownValue = selected!;
+                });
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: DropdownButton(
+                hint: Text(selectedDropDown),
+                items: techStack
+                    .map(
+                      (String tech) => DropdownMenuItem(
+                        child: Text(tech),
+                        value: tech,
+                      ),
+                    )
+                    .toList(),
+                onChanged: (selected) {
+                  setState(() {
+                    selectedDropDown = selected!;
+                  });
+                }),
+          ),
         ],
       ),
     );

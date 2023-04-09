@@ -52,6 +52,19 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/date');
+                },
+                child: const Text(
+                  'Date Page',
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

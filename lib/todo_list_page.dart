@@ -7,11 +7,11 @@ class TodoListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Todo List',
         ),
       ),
-      body: MyTodoListPage(),
+      body: const MyTodoListPage(),
     );
   }
 }
@@ -56,7 +56,7 @@ class _MyTodoListPageState extends State<MyTodoListPage> {
                       controller1.clear();
                     });
                   },
-                  child: Text('Add')),
+                  child: const Text('Add')),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
@@ -64,7 +64,7 @@ class _MyTodoListPageState extends State<MyTodoListPage> {
                     controller1.clear();
                   });
                 },
-                child: Text(
+                child: const Text(
                   'Delete',
                 ),
               ),

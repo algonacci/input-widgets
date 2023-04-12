@@ -134,8 +134,8 @@ class _CheckboxSliderRadioSwitchPageState
                 items: techStack
                     .map(
                       (String tech) => DropdownMenuItem(
-                        child: Text(tech),
                         value: tech,
+                        child: Text(tech),
                       ),
                     )
                     .toList(),

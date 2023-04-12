@@ -78,6 +78,19 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/todo');
+                },
+                child: const Text(
+                  'Todo List Page',
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

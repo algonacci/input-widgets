@@ -5,6 +5,7 @@ import 'package:input_widgets/home_page.dart';
 import 'package:input_widgets/stepper_page.dart';
 import 'package:input_widgets/text_field.dart';
 import 'package:input_widgets/text_form_field.dart';
+import 'package:input_widgets/todo_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
         '/textformfield': (context) => const TextFormFieldPage(),
         '/other': (context) => const CheckboxSliderRadioSwitchPage(),
         '/date': (context) => const DatePage(),
-        '/stepper': (context) => const StepperPage()
+        '/stepper': (context) => const StepperPage(),
+        '/todo': (context) => const TodoListPage(),
       },
     );
   }
